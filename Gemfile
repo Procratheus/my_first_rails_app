@@ -48,3 +48,6 @@ gem 'spring',        group: :development
 # Use Sass
 gem 'bootstrap-sass', '~> 3.1.1'
 
+# Use Faker
+gem 'faker'
+
