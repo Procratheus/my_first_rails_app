@@ -51,3 +51,6 @@ gem 'bootstrap-sass', '~> 3.1.1'
 # Use Faker
 gem 'faker'
 
+# Use Devise
+gem 'devise'
+
