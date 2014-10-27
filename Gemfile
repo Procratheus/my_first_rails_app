@@ -44,13 +44,8 @@ gem 'spring',        group: :development
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
-
-# Use Sass
 gem 'bootstrap-sass', '~> 3.1.1'
-
-# Use Faker
 gem 'faker'
-
-# Use Devise
 gem 'devise'
+gem 'figaro', '1.0' 
 
