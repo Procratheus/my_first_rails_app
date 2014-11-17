@@ -22,3 +22,9 @@
     <p>Bloccit will make you better looking: it's scientifically proven to make men look like Ryan Gosling and women look like Shakira.</p>
   </div>
 </div>
+
+<%= simple_form_for(current_user) do |f| %>
+  <%= f.input :email%>
+  <%= f.input :password %>
+  <%= f.button :submit %>
+<% end %>
