@@ -36,8 +36,9 @@ end
 posts = Post.all 
 
 # Create Comments
-100.times do
+5000.times do
   Comment.create!(
+    user: users.sample,
     post: posts.sample,
     body: Faker::Lorem.paragraph
     )
@@ -75,5 +76,6 @@ member.save!
 
 puts "Seed finished"
 puts "#{User.count} users created"
+puts "#{Topic.count} posts created"
 puts "#{Post.count} posts created"
 puts "#{Comment.count} comments created"

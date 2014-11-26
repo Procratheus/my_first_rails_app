@@ -11,6 +11,7 @@ end
  
 group :development do
    gem 'sqlite3'
+   gem 'better_errors'
 end
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.3'
@@ -53,4 +54,5 @@ gem 'redcarpet'
 gem 'carrierwave'
 gem 'mini_magick'
 gem 'fog'
- gem 'will_paginate', '~> 3.0.5'
+gem 'will_paginate', '~> 3.0.5'
+gem 'binding_of_caller'
