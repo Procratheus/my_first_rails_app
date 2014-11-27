@@ -48,7 +48,7 @@ class TopicsController < ApplicationController
     params.require(:topic).permit(:name, :description, :public)
   end
 
-  def lewis_paginate(&block)
+  def lewis_paginate(topics)
     @page = 0
     @limit = 10
     @page_total = (Topic.all.count/topics.count).ceil.to_i

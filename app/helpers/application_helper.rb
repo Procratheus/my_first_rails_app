@@ -19,14 +19,14 @@ module ApplicationHelper
     (redcarpet.render text).html_safe
   end
   
-  @page = 0
-  @limit = 10
-
   def lewis_paginate(topics)
+    @page = 0
+    @limit = 10
     @page_total = (Topic.all.count/topics.count).ceil.to_i
     @page_array = (@page..@page_total).to_a
     @page_array.each do |page|
-      content_tag :span, capture(page)
+      content_tag :span, capture(link_to "#{page}", topics_path)
     end
   end
+
 end
