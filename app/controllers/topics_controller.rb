@@ -48,4 +48,14 @@ class TopicsController < ApplicationController
     params.require(:topic).permit(:name, :description, :public)
   end
 
+  def lewis_paginate(&block)
+    @page = 0
+    @limit = 10
+    @page_total = (Topic.all.count/topics.count).ceil.to_i
+    @page_array = (@page..@page_total).to_a
+    @page_array.each do |page|
+      content_tag :span, capture(link_to "#{page}", topics_path)
+    end
+  end
+
 end
