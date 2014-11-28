@@ -1,3 +1,7 @@
+<small>
+  <%= image_tag(@post.image.thumb.url) if @post.image? %>
+</small>
+
 <h1><%= markdown @post.title %></h1>
 
 <div class="row">
@@ -8,9 +12,6 @@
       <%= @post.user.name %>
     </small>
     <p><%= markdown @post.body %></p>
-    <small>
-      <%= image_tag(@post.image.thumb.url) if @post.image? %>
-    </small>
   </div>
   <div class="col-md-4">
     <% if policy(@post).edit? %>
@@ -18,7 +19,19 @@
     <% end %>
   </div>
 </div>
-
+<div class="row">
+  <div class="col-md-8">
+    <div class="media">
+    <% @comment.each do |comment| %>
+      <div class="media-body">
+        <div class="media-heading">
+          <%= markdown comment.body %>
+        </div>
+      </div>
+    <% end %>
+    </div>
+  </div>
+</div>
 
 
 

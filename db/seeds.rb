@@ -36,7 +36,7 @@ end
 posts = Post.all 
 
 # Create Comments
-5000.times do
+10.times do
   Comment.create!(
     user: users.sample,
     post: posts.sample,
