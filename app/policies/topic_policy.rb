@@ -12,4 +12,8 @@ class TopicPolicy < ApplicationPolicy
     create?
   end
 
+  def destory?
+    update?
+  end
+
 end

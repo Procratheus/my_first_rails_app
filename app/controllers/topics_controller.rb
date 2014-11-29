@@ -35,11 +35,25 @@ class TopicsController < ApplicationController
     @topic = Topic.find(params[:id])
     authorize @topic
     if @topic.update_attributes(topics_params)
-      redirect_to @topic
+      #redirect_to @topic notice: "Topic was updated successfully."
     else
-      flash[:error] = "There was an error updating this topic"
+      flash[:error] = "There was an error updating this topic."
       render :edit
     end
+  end
+
+  def destroy
+    @topic = Topic.find(params[:id])
+    name = @topic.name
+    authorize @topic
+    if @topic.destroy
+      flash[:notice] = "\"#{name}\" was deleted successfully."
+      redirect_to topics_path
+    else
+      flash[:error] = "There was error deleting the topic."
+      render :show
+    end 
+
   end
 
   private
