@@ -49,6 +49,10 @@ class ApplicationPolicy
     def resolve
       scope
     end
+  end 
+
+  def can_moderate?
+    create? && (record.user = user || admin.user? || admin.moderator?)
   end
 end
 
