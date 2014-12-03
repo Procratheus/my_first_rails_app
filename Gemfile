@@ -8,6 +8,11 @@ group :production do
    gem 'pg'
    gem 'rails_12factor'
 end
+
+# Use R-spec as BDD test toolkit for test environment:
+group :test do
+   gem 'rspec-rails', '~> 3.1.0'
+end 
  
 group :development do
    gem 'sqlite3'
