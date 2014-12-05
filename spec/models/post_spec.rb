@@ -2,15 +2,28 @@ require 'rails_helper'
 
 describe Post do
 
+  include TestFactories
+
   describe "vote methods" do
 
     before do
-      @post = Post.create(title: "post title", body: "Post bodies must be pretty long")
+      @post = associated_post
+      allow(@post).to receive(:create_vote)
+      @post.save
       3.times do 
         @post.votes.create(value: 1) 
       end
       2.times do
         @post.votes.create(value: -1)
+      end
+    end
+
+    describe "#create_vote" do
+      it "adds a up-vote immediately after a new post is created" do
+        post = associated_post
+        expect( post.up_votes ).to eq(0)
+        post.create_vote
+        expect( post.up_votes ).to eq(1)
       end
     end
 
@@ -31,6 +44,7 @@ describe Post do
         expect( @post.points).to eq(1)
       end
     end
+
   end
 
 end
