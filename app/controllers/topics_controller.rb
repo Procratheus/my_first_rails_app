@@ -35,7 +35,8 @@ class TopicsController < ApplicationController
     @topic = Topic.find(params[:id])
     authorize @topic
     if @topic.update_attributes(topics_params)
-      #redirect_to @topic notice: "Topic was updated successfully."
+       flash[:notice] = "Topic was updated successfully."
+       redirect_to @topic
     else
       flash[:error] = "There was an error updating this topic."
       render :edit
