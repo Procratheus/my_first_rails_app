@@ -25,9 +25,11 @@ class Post < ActiveRecord::Base
     update_attribute(:rank, new_rank)
   end
 
-  def create_vote
+  def save_with_initial_vote
+    self.save
     user.votes.create(value: 1, post: self)
   end
+
 
   default_scope { order("rank DESC")}
 
