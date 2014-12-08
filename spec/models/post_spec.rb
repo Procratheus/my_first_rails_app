@@ -8,8 +8,7 @@ describe Post do
 
     before do
       @post = associated_post
-      allow(@post).to receive(:create_vote)
-      @post.save
+      allow(@post).to receive(:save_with_initial_vote)
       3.times do 
         @post.votes.create(value: 1) 
       end
@@ -22,7 +21,7 @@ describe Post do
       it "adds a up-vote immediately after a new post is created" do
         post = associated_post
         expect( post.up_votes ).to eq(0)
-        post.create_vote
+        post.save_with_initial_vote
         expect( post.up_votes ).to eq(1)
       end
     end
