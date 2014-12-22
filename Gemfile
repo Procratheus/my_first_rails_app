@@ -12,6 +12,7 @@ end
 # Use R-spec as BDD test toolkit for test environment:
 group :test do
    gem 'rspec-rails', '~> 3.1.0'
+   gem 'capybara'
 end 
  
 group :development do

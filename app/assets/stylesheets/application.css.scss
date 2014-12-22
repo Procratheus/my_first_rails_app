@@ -1,4 +1,4 @@
-/* @import "bootstrap-sprockets"; */
+@import "bootstrap-sprockets";
 @import "bootstrap";
 
 .user-info {
@@ -16,4 +16,8 @@
 
 .favorite {
   margin-top: 20px;
+}
+
+.voted {
+  opacity: 0.5;
 }
