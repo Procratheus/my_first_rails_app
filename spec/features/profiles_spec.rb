@@ -2,12 +2,10 @@ require "rails_helper"
 
 describe "Visiting Profiles" do
 
-  include TestFactories
-
   before do
-    @user = authenticated_user 
-    @post = associated_post(user: @user)
-    @comment = Comment.create(user: @user, body: "A Comment")
+    @user = create(:user)
+    @post = create(:post, user: @user)
+    @comment = create(:comment, user: @user, post: @post)
   end
 
   describe "not signed in" do

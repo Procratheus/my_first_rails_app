@@ -2,12 +2,11 @@ require 'rails_helper'
 
 describe Post do
 
-  include TestFactories
-
   describe "vote methods" do
 
     before do
-      @post = associated_post
+      @user = create(:user)
+      @post = create(:post, user: @user)
       allow(@post).to receive(:save_with_initial_vote)
       3.times do 
         @post.votes.create(value: 1) 
@@ -19,7 +18,7 @@ describe Post do
 
     describe "#create_vote" do
       it "adds a up-vote immediately after a new post is created" do
-        post = associated_post
+        post = create(:post, user: @user)
         expect( post.up_votes ).to eq(0)
         post.save_with_initial_vote
         expect( post.up_votes ).to eq(1)

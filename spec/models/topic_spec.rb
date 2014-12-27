@@ -2,8 +2,6 @@ describe "Topic" do
 
   describe "scopes" do
 
-    include TestFactories
-
     before do
       @public_topic = Topic.create
       @private_topic = Topic.create(public: false)
@@ -23,7 +21,7 @@ describe "Topic" do
 
     describe "visible_to(user)" do
       it "returns all topics if a user is present" do
-        user = authenticated_user
+        user = create(:user)
         expect( Topic.visible_to(user) ).to eq( Topic.all )
       end
 

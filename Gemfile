@@ -13,6 +13,7 @@ end
 group :test do
    gem 'rspec-rails', '~> 3.1.0'
    gem 'capybara'
+   gem 'database_cleaner'
 end 
  
 group :development do
@@ -63,3 +64,4 @@ gem 'fog'
 gem 'will_paginate', '~> 3.0.5'
 gem 'binding_of_caller'
 gem 'newrelic_rpm'
+gem 'factory_girl_rails', '~> 4.0' 
